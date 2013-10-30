@@ -27,3 +27,8 @@ execute "npm_install" do
   command 'sudo su - vagrant -c "cd /vagrant && npm install"'
   action :run
 end
+
+execute "bower_install" do
+  command 'sudo su - vagrant -c "cd /vagrant && bower install"'
+  action :run
+end
