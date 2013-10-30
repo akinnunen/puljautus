@@ -13,8 +13,8 @@ Steps
 
 - vagrant init precise64 http://files.vagrantup.com/precise64.box
 - mkdir submodules
-- git submodule add git@github.com:opscode-cookbooks/build-essential.git ./cookbooks/build-essential
-- git submodule add git@github.com:balbeko/chef-npm.git ./cookbooks/npm
+- git submodule add git@github.com:opscode-cookbooks/build-essential.git cookbooks/build-essential
+- git submodule add git@github.com:balbeko/chef-npm.git cookbooks/npm
 - git submodule add git@github.com:mdxp/nodejs-cookbook.git cookbooks/nodejs
 - git submodule add git@github.com:opscode-cookbooks/apt.git cookbooks/apt
 - git submodule add git@github.com:opscode-cookbooks/git.git cookbooks/git
