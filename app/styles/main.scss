@@ -24,9 +24,9 @@ body {
 .header {
 	text-align: center;
 	padding: 15px 0 0 0;
-	background: url('../images/header-divider.png') repeat-x;
+	background: url('../images/header-divider.png') repeat-x bottom;
 	background-size: 468px 46px;
-	height: 150px;
+	height: 125px;
 	.logo {
 		margin: 0 auto;
 		text-align: center;
@@ -35,7 +35,6 @@ body {
 
 .mode-container {
 	max-width: 960px; /* to be enhanced later on */
-	width: 100%;
 	text-align: center;
 	margin: 0 auto;
 	.mode {
@@ -66,9 +65,10 @@ a.active {
 p.about {
 	color: #FFFFFF;
     font-family: arial;
-    font-size: 1.0em;
+    font-size: 0.8em;
+    font-style: italic;
     font-weight: lighter;
-    padding: 25px 0;
+    padding: 17px 0;
     text-transform: uppercase;
 
 }
