@@ -7,4 +7,6 @@ angular.module('vagrantApp')
       'Karkki',
       'Kalja'
     ];
+    state.gameRounds = 4;
+    state.currentGameRound = 1;
   });
