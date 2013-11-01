@@ -17,7 +17,10 @@ describe('Controller: MainCtrl', function () {
     scope = $rootScope.$new();
     location = $location;
     location.url('/');
-    state = {};
+    state = {
+      currentGameRound: 4,
+      score: 1234
+    };
     
     var gameModes = [
       {
@@ -44,7 +47,7 @@ describe('Controller: MainCtrl', function () {
 
   it('should attach a list of game modes to the scope', function () {
     httpBackend.flush();
-    expect(scope.gameModes.length).toBe(2)
+    expect(scope.gameModes.length).toBe(2);
   });
 
   it('should set reset current game round', function() {
@@ -53,6 +56,10 @@ describe('Controller: MainCtrl', function () {
 
   it('should set game rounds', function() {
     expect(state.gameRounds).toBe(4);
+  });
+
+  it('should reset score', function() {
+    expect(state.score).toBe(0);
   });
 
   it('should change location to game when enabled mode is selected', function() {
