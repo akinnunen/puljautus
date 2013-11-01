@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('vagrantApp').controller('MainCtrl', function ($scope, state, nameGenerator, $location, jsonConverter, GameModes) {
+angular.module('vagrantApp').controller('MainCtrl', function ($scope, state, $location, jsonConverter, GameModes) {
+    
     $scope.play = function(mode) {
       if (mode.enabled) {
         state.mode = mode.id;
@@ -11,7 +12,8 @@ angular.module('vagrantApp').controller('MainCtrl', function ($scope, state, nam
     state.gameRounds = 4;
     state.currentGameRound = 1;
 
-    $scope.gameModes = GameModes.query(function() {
-      jsonConverter.convert(gameModesJson)
+    $scope.gameModes = GameModes.query(function(json) {
+      return jsonConverter.convert(json);
     });
   });
+
