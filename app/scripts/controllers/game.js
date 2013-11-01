@@ -5,7 +5,7 @@ angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location,
   $scope.state = state;
   $scope.message = 'Hello!';
 
-  var data = $filter('getByMode')(state.gameModes, state.mode)
+  var data = $filter('getByMode')(state.gameModes, state.mode).options;
 
   $scope.select = function(optionId) {
     $log.info("Selected " + optionId);
