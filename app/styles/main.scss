@@ -13,9 +13,17 @@ a {
 }
 
 body {
-    background: #fafafa;
+    background: url('../images/puljaus-main-bg.png');
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
+}
+
+.header {
+	text-align: center;
+	.logo {
+		margin: 0 auto;
+		text-align: center;
+	}
 }
 
 .hero-unit {
