@@ -5,15 +5,13 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
 /* Put your CSS here */
 html, body {
-
+  margin: 20px;
 }
 
 a {
   cursor: pointer;
   color: white;
 }
-
-.padding {padding: 10px;}
 
 body {
     background: url('../images/puljaus-main-bg.png');
@@ -23,10 +21,6 @@ body {
 
 .header {
 	text-align: center;
-	padding: 15px 0 0 0;
-	background: url('../images/header-divider.png') repeat-x;
-	background-size: 468px 46px;
-	height: 150px;
 	.logo {
 		margin: 0 auto;
 		text-align: center;
@@ -37,6 +31,7 @@ body {
 	max-width: 960px; /* to be enhanced later on */
 	width: 100%;
 	text-align: center;
+	padding: 20px 0 0 0;
 	margin: 0 auto;
 	.mode {
 		a {
@@ -62,16 +57,6 @@ body {
 a.active {
 	opacity: 1!important;
 }
-
-p.about {
-	color: #FFFFFF;
-    font-family: arial;
-    font-size: 1.0em;
-    font-weight: lighter;
-    padding: 25px 0;
-    text-transform: uppercase;
-
-}
 .hero-unit {
     margin: 50px auto 0 auto;
     width: 300px;
@@ -87,20 +72,4 @@ p.about {
     font-size: 60px;
     line-height: 1;
     letter-spacing: -1px;
-}
-
-.game {
-	
-	.face {
-		margin-bottom: 10px;
-	}
-
-	.option {
-		display: block;
-		border: 1px;
-		border-radius: 5px;
-		background: blue;
-		padding: 10px;
-		margin-bottom: 5px;
-	}
 }
