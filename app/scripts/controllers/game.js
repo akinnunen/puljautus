@@ -15,7 +15,7 @@ angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location,
 
     if (optionId == $scope.correctAnswer.id) {
       $log.info("Correct answer");
-      state.score = state.score + 1; 
+      state.score = state.score + 1;
     } else {
       $log.info("Incorrect answer");
     }
@@ -24,6 +24,7 @@ angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location,
   }
 
   var nextRound = function() {
+
     state.currentGameRound = state.currentGameRound + 1;
 
     if (state.currentGameRound > state.gameRounds) {
