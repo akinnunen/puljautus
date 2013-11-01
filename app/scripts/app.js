@@ -6,6 +6,9 @@ angular.module('vagrantApp', [])
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
+      }).when('/game', {
+        templateUrl: 'views/game.html',
+        controller: 'GameCtrl'
       })
       .otherwise({
         redirectTo: '/'
