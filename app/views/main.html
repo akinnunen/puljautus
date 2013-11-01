@@ -5,18 +5,6 @@
 </div>
 <div class="mode-container">
 	<div class="mode">
-		<a href="#" class="active">Name Quiz</a>
-		<a href="#">Expertise Quiz</a>
-		<a href="#">Lorem Ipsum</a>
-		<a href="#">Ipsum Lorem</a>
+		<a ng-class="{'active': mode.enabled}" ng-repeat="mode in gameModes" ng-click="play(mode)">{{mode.name}}</a>
 	</div>
 </div>
-<!-- 
-<div class="hero-unit">
-  <h1>Puljautus</h1>
-  <ul>
-      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
-  </ul>
-  <a href="#/game">Game</a>
-</div>
--->
