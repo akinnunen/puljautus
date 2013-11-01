@@ -16,7 +16,7 @@ describe('Controller: MainCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
+  it('should attach a list of gameModes to the scope', function () {
     expect(scope.gameModes.length).toBe(4);
   });
 });
