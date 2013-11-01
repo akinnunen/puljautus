@@ -8,14 +8,34 @@ describe('Controller: MainCtrl', function () {
   var MainCtrl,
     scope,
     location,
-    state;
+    state,
+    httpBackend;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope, $location) {
+  beforeEach(inject(function ($controller, $rootScope, $location, $httpBackend) {
+    httpBackend = $httpBackend;
     scope = $rootScope.$new();
     location = $location;
     location.url('/');
     state = {};
+    
+    var gameModes = [
+      {
+        "id":"names",
+        "name":"Nimet",
+        "enabled":true,
+        "options": []
+      },
+      {
+        "id":"names",
+        "name":"Nimet",
+        "enabled":true,
+        "options": []
+      }
+    ];
+
+    $httpBackend.when('GET', '/data/gamemodes.json').respond(gameModes);
+
     MainCtrl = $controller('MainCtrl', {
       $scope: scope,
       state: state
@@ -23,11 +43,12 @@ describe('Controller: MainCtrl', function () {
   }));
 
   it('should attach a list of game modes to the scope', function () {
-    expect(scope.gameModes.length).toBe(4);
+    httpBackend.flush();
+    expect(scope.gameModes.length).toBe(2)
   });
 
   it('should set reset current game round', function() {
-    expect(state.currentGameRound).toBe(1);
+    expect(state.currentGameRound).toBe(0);
   });
 
   it('should set game rounds', function() {
