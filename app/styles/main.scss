@@ -10,6 +10,7 @@ html, body {
 
 a {
   cursor: pointer;
+  color: white;
 }
 
 body {
@@ -26,6 +27,35 @@ body {
 	}
 }
 
+.mode-container {
+	max-width: 960px; /* to be enhanced later on */
+	width: 100%;
+	text-align: center;
+	padding: 20px 0 0 0;
+	.mode {
+		a {
+			display: block;
+			background: #06466b;
+			border-radius: 80px;
+			padding: 15px;
+			margin: 10px 0;
+			font-family: Georgia, serif;
+			font-weight: 1.4em;
+			font-style: italic;
+			font-weight: bold;
+			text-shadow: 0px 2px 0px black;
+			-moz-text-shadow: 0px 2px 0px black;
+			-webkit-text-shadow: 0px 2px 0px black;
+			font-size: 1.4em;
+			border: 1px solid rgba(0,0,0,0.3);
+			opacity: 0.5;
+		}
+	}
+}
+
+a.active {
+	opacity: 1!important;
+}
 .hero-unit {
     margin: 50px auto 0 auto;
     width: 300px;
