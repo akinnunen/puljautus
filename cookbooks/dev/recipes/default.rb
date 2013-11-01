@@ -1,3 +1,4 @@
+include_recipe "phantomjs"
 include_recipe "npm"
 
 gem_package "compass" do
