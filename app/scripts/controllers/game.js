@@ -1,22 +1,11 @@
 'use strict';
 
-angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location, $log, state) {
+angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location, $log, state, $filter) {
+  
   $scope.state = state;
   $scope.message = 'Hello!';
 
-  // TODO: fetch this from somewhere
-  var data = [
-    { id:1, first: 'Kalle', last: 'Bertell', imgSrc: "images/monkey_face.jpg"},
-    { id:2, first: 'Jouni', last: 'Rajala', imgSrc: "images/monkey_face.jpg"},
-    { id:3, first: 'Anssi', last: 'Kinnunen', imgSrc: "images/monkey_face.jpg"},
-    { id:4, first: 'Erno', last: 'Aapa', imgSrc: "images/monkey_face.jpg"},
-    { id:5, first: 'Markus', last: 'Sammalahti', imgSrc: "images/monkey_face.jpg"},
-    { id:6, first: 'Juha', last: 'Kuusela', imgSrc: "images/monkey_face.jpg"},
-    { id:7, first: 'Matias', last: 'Kantele', imgSrc: "images/monkey_face.jpg"},
-    { id:8, first: 'Matti', last: 'Pesonen', imgSrc: "images/monkey_face.jpg"},
-    { id:9, first: 'Emma', last: 'Storbacka', imgSrc: "images/monkey_face.jpg"},
-    { id:10, first: 'Samuel', last: 'Salmenlinna', imgSrc: "images/monkey_face.jpg"}
-  ]
+  var data = $filter('getByMode')(state.gameModes, state.mode)
 
   $scope.select = function(optionId) {
     $log.info("Selected " + optionId);
