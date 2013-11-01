@@ -9,7 +9,7 @@ angular.module('vagrantApp').controller('MainCtrl', function ($scope, state, nam
     }
 
     state.gameRounds = 4;
-    state.currentGameRound = 1;
+    state.currentGameRound = 0;
 
     $scope.gameModes = GameModes.query(function() {
       jsonConverter.convert(gameModesJson)

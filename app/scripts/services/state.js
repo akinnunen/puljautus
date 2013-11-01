@@ -5,6 +5,7 @@ angular.module('vagrantApp')
         var state = {};
 
         return {
-            state: state
+            state: state,
+            score: 0
         };
     });

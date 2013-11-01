@@ -1,4 +1,8 @@
 <div class="hero-unit">
-  <h1>VICTOLYYY</h1>
+  
+  <h1 ng-show="state.score >= 2">VICTORY!</h1>
+  <h1 ng-show="state.score < 2">Oh noes!</h1>
+  
+  <strong>{{state.score}} points</strong>
   <a href="#/main">Back to main</a>
 </div>
