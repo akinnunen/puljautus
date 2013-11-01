@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('vagrantApp')
-  .controller('MainCtrl', function ($scope, state, nameGenerator) {
+  .controller('MainCtrl', function ($scope, state, nameGenerator, $location) {
     $scope.gameModes = [
     	{
     		id: "names",
@@ -26,7 +26,7 @@ angular.module('vagrantApp')
     ];
 
     $scope.play = function(mode) {
-    	console.log("Play: " + mode.id);
+        $location.path('/game');
     }
 
     state.gameRounds = 4;
