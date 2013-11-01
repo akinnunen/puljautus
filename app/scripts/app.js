@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('vagrantApp', [])
-  .config(function ($routeProvider) {
+angular.module('vagrantApp', ['ngResource'])
+  .config(function ($routeProvider, $httpProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',

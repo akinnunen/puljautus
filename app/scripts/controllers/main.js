@@ -1,7 +1,6 @@
 'use strict';
 
-angular.module('vagrantApp')
-  .controller('MainCtrl', function ($scope, state, nameGenerator, $location) {
+angular.module('vagrantApp').controller('MainCtrl', function ($scope, state, nameGenerator, $location, jsonConverter, GameModes) {
     $scope.gameModes = [
       {
         id: "names",
@@ -35,5 +34,8 @@ angular.module('vagrantApp')
     state.gameRounds = 4;
     state.currentGameRound = 1;
 
-    console.log(nameGenerator.generateFirstAndLastNames(4))
+    var gameModesJson = GameModes.query(function() {
+      jsonConverter.convert(gameModesJson)
+    });
+
   });

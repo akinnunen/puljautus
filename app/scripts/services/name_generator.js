@@ -1,4 +1,4 @@
-angular.module('vagrantApp').factory('nameGenerator', function () {
+angular.module('vagrantApp').factory('nameGenerator', function(GameModes) {
     
   'use strict';
 
@@ -18,6 +18,10 @@ angular.module('vagrantApp').factory('nameGenerator', function () {
       }
 
       return results;
+    },
+
+    getFirstAndLastNamesExceptOne: function() {
+
     }
 
   };
