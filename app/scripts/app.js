@@ -9,7 +9,10 @@ angular.module('vagrantApp', [])
       }).when('/game', {
         templateUrl: 'views/game.html',
         controller: 'GameCtrl'
-      })
+      }).when('/score', {
+            templateUrl: 'views/score.html',
+            controller: 'ScoreCtrl'
+        })
       .otherwise({
         redirectTo: '/'
       });
