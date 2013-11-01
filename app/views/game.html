@@ -1,10 +1,17 @@
-<div class="hero-unit">
+<div class="hero-unit game">
   <h1>Game</h1>
   <p>{{ message }}</p>
     <p>Round {{ state.currentGameRound }}/{{ state.gameRounds }}</p>
-    <div ng-switch on="state.currentGameRound == state.gameRounds">
-      <a ng-switch-when="true" href="#/score">Finish</a>
-      <a ng-switch-when="false" ng-click="nextRound()">Next round</a>
+
+    <div class="face">
+      <img ng-src="images/monkey_face.jpg">
     </div>
-  <a href="#/">Back to menu</a>
+
+    <div class="options">
+      <a class="option" 
+         ng-click="select(option.value)"
+         ng-repeat="option in options">{{option.label}}</a>
+    </div>
+  
+    <a href="#/">Back to menu</a>
 </div>

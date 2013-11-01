@@ -73,3 +73,19 @@ a.active {
     line-height: 1;
     letter-spacing: -1px;
 }
+
+.game {
+	
+	.face {
+		margin-bottom: 10px;
+	}
+
+	.option {
+		display: block;
+		border: 1px;
+		border-radius: 5px;
+		background: blue;
+		padding: 10px;
+		margin-bottom: 5px;
+	}
+}
