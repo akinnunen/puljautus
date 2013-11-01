@@ -2,6 +2,9 @@
   <h1>Game</h1>
   <p>{{ message }}</p>
     <p>Round {{ state.currentGameRound }}/{{ state.gameRounds }}</p>
-  <a href="#/score">Finish</a><br>
-  <a href="#/">Back</a>
+    <div ng-switch on="state.currentGameRound == state.gameRounds">
+      <a ng-switch-when="true" href="#/score">Finish</a>
+      <a ng-switch-when="false" ng-click="nextRound()">Next round</a>
+    </div>
+  <a href="#/">Back to menu</a>
 </div>
