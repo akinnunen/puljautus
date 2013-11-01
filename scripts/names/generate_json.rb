@@ -18,7 +18,7 @@ File.open('names.csv').each do |line|
     options << { 
       :first => first,
       :last => last,
-      :imgSrc => 'images/people/monkey_face.jpg'
+      :imgSrc => '/images/people/monkey_face.jpg'
     }
     
   end
