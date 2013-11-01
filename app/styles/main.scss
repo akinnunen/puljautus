@@ -5,7 +5,8 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
 /* Put your CSS here */
 html, body {
-
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-tap-highlight-color: transparent; /* silly androids */
 }
 
 a {
@@ -131,13 +132,16 @@ img.faceimage {
 .options-container {
 	background: none repeat scroll 0 0 rgba(0, 0, 0, 0.2);
     margin: 0 auto;
-    max-width: 960px;
+
     padding: 65px 10px 10px 10px;
     text-align: center;
 	position: relative; 
 	bottom: 140px;
 	border-bottom: 1px solid rgba(0,0,0,0.3);
 	.options {
+	max-width: 960px;
+	margin: 0 auto;
+	text-align: center;
 		a {
 			display: block;
 			background: #06466b;
