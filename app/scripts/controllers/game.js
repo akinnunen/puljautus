@@ -1,7 +1,10 @@
 'use strict';
 
 angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location, $log, state, $filter) {
-  
+  if (state.mode === undefined) {
+    $location.path('/');
+  }
+
   $scope.state = state;
   $scope.message = 'Hello!';
 
