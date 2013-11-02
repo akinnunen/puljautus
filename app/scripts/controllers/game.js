@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location, $log, state, $filter) {
+angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location, $log, state, $filter, nameGenerator) {
   if (state.mode === undefined) {
     $location.path('/');
   }
@@ -11,16 +11,20 @@ angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location,
   var data = $filter('getByMode')(state.gameModes, state.mode).options;
 
   $scope.select = function(index) {
+
     $log.info("Selected " + index);
 
     if (index == $scope.correctAnswer.index) {
-      $log.info("Correct answer");
       state.score = state.score + 1;
+      $scope.options[index].correct = true
     } else {
-      $log.info("Incorrect answer");
+      $scope.options[index].incorrect = true
     }
 
-    nextRound();
+    setTimeout(function() {
+      nextRound();
+      $scope.$apply();
+    }, 1500);
   }
 
   var nextRound = function() {
@@ -31,8 +35,9 @@ angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location,
       $location.path("/score");
     }
 
-    $scope.options = generateRandomOptions();
-    $scope.correctAnswer = $scope.options[rnd($scope.options.length)];
+    $scope.options = nameGenerator.generateRandomOptions(4, data);
+    $scope.correctAnswer = $scope.options[nameGenerator.rnd($scope.options.length)];
+
     console.log($scope.correctAnswer);
     console.log($scope.options);
 
@@ -41,30 +46,7 @@ angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location,
 
   var startGame = function() {
     $log.info("Starting game in mode: " + state.mode);
-
     nextRound();
-  }
-
-  var generateRandomOptions = function() {
-    var clonedData = data.slice(0);
-    var choices = [];
-
-    $log.info("Generating 4 options from a set of " + clonedData.length);
-
-    for (var i=0; i<4; i++) {
-      var option = clonedData.splice(rnd(clonedData.length), 1)[0];
-      choices.push({ 
-        label: option.first + ' ' + option.last, 
-        index: i,
-        imgSrc: option.imgSrc 
-      });
-    }
-
-    return choices;
-  }
-
-  var rnd = function(num) {
-    return Math.floor(Math.random() * num);
   }
 
   startGame();

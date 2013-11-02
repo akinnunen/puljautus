@@ -159,5 +159,13 @@ img.faceimage {
 			border: 1px solid rgba(0,0,0,0.3);
             text-transform: capitalize;
 		}
+
+        a.correct {
+            background: $green;
+        }
+
+        a.incorrect {
+            background: $red;
+        }
 	}
 }
