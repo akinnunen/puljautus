@@ -187,3 +187,15 @@ img.faceimage {
         padding: 0px;
     }
 }
+
+.score-container {
+	max-width: 960px; /* to be enhanced later on */
+	text-align: center;
+	margin: 0 auto;
+	.score-msg {
+      color: white;
+	}
+	.score-points {
+      color: white;
+	}
+}

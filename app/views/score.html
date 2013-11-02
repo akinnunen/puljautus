@@ -1,8 +1,19 @@
-<div class="hero-unit">
-  
-  <h1 ng-show="state.score >= 2">VICTORY!</h1>
-  <h1 ng-show="state.score < 2">Oh noes!</h1>
-  
-  <strong>{{state.score}} points</strong>
-  <a href="#/main">Back to main</a>
+<div class="header">
+	<div class="logo">
+		<img src="images/avaus-logo.png" width="125" />
+	</div>
+</div>
+<div class="score-container">
+  <div class="score-msg">
+    <h1 ng-show="state.score >= 2">VICTORY!</h1>
+    <h1 ng-show="state.score < 2">Oh noes!</h1>
+  </div>
+  <div class="score-points">
+    <strong>{{state.score}} points</strong>
+  </div>
+</div>
+<div class="mode-container padding">
+  <div class="mode">
+    <a ng-click="toMain()">Back to main</a>
+  </div>
 </div>
