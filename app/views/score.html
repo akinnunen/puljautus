@@ -1,19 +1,24 @@
 <div class="header">
+    <a class="menu" href="#/">Back to menu</a>
 	<div class="logo">
 		<img src="images/avaus-logo.png" width="125" />
 	</div>
 </div>
-<div class="score-container">
-  <div class="score-msg">
-    <h1 ng-show="state.score >= 2">VICTORY!</h1>
-    <h1 ng-show="state.score < 2">Oh noes!</h1>
-  </div>
-  <div class="score-points">
-    <strong>{{state.score}} points</strong>
-  </div>
+<div class="face">
+	<img class="faceimage" ng-src="images/monkey_face.jpg">
 </div>
-<div class="mode-container padding">
-  <div class="mode">
-    <a class="active" ng-click="toMain()">Back to main</a>
-  </div>
+<div class="options-container padding" style="">
+	<div class="options">
+		<h1 ng-show="state.score < 2">Oh noes!</h1>
+		<h1 ng-show="state.score >= 2">VICTORY!</h1>
+		<strong>{{state.score}} points</strong>
+      <a class="option" 		  
+		  <a href="#/main">Back to main</a>
+    </div>
 </div>
+
+
+
+  
+
+

@@ -26,6 +26,10 @@ body {
     color: #333;
 }
 
+h1 {
+	color: white;
+}
+
 .header {
 	text-align: center;
 	padding: 15px 0 0 0;
@@ -142,6 +146,7 @@ img.faceimage {
 	max-width: 960px;
 	margin: 0 auto;
 	text-align: center;
+	color: white;
 		a {
 			display: block;
 			background: #06466b;
