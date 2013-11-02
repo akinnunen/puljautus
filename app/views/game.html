@@ -8,9 +8,13 @@
   <!-- <p>{{ message }}</p> -->
 
 
-    <div class="face">
-      <img class="faceimage" ng-src="{{ correctAnswer.imgSrc }}">
-    </div>
+<div class="face">
+  <img class="faceimage" ng-src="{{ correctAnswer.imgSrc }}">
+</div>
+
+<div class="timer">
+  <h1>{{ timer.timeLeftInMillis / 1000 }}</h1>
+</div>
 
 <div class="options-container padding" style="">
 	<div class="options">
