@@ -3,7 +3,6 @@
 	<div class="logo">
 		<img src="images/avaus-logo.png" width="125" />
 	</div>
-	<p class="current-score">Round {{ state.currentGameRound }}/{{ state.gameRounds }}</p>
 </div>
   <!-- <p>{{ message }}</p> -->
 
@@ -12,9 +11,7 @@
   <img class="faceimage" ng-src="{{ correctAnswer.imgSrc }}">
 </div>
 
-<div class="timer">
-  <h1>{{ timer.timeLeftInMillis / 1000 }}</h1>
-</div>
+
 
 <div class="options-container padding" style="">
 	<div class="options">
@@ -23,4 +20,7 @@
          ng-class="{ 'correct': option.correct, 'incorrect': option.incorrect, 'disabled': option.disabled }"
          ng-repeat="option in options">{{option.label}}</a>
     </div>
+    <div class="timer">
+		<span class="timer-count">{{ timer.timeLeftInMillis / 1000 }} | Round {{ state.currentGameRound }}/{{ state.gameRounds }}</span>
+  </div>
 </div>
