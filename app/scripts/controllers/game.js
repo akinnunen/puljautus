@@ -10,10 +10,10 @@ angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location,
 
   var data = $filter('getByMode')(state.gameModes, state.mode).options;
 
-  $scope.select = function(optionId) {
-    $log.info("Selected " + optionId);
+  $scope.select = function(index) {
+    $log.info("Selected " + index);
 
-    if (optionId == $scope.correctAnswer.id) {
+    if (index == $scope.correctAnswer.index) {
       $log.info("Correct answer");
       state.score = state.score + 1;
     } else {
@@ -34,6 +34,7 @@ angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location,
     $scope.options = generateRandomOptions();
     $scope.correctAnswer = $scope.options[rnd($scope.options.length)];
     console.log($scope.correctAnswer);
+    console.log($scope.options);
 
     $log.info("Current game round: " + state.currentGameRound)
   }
@@ -54,7 +55,7 @@ angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location,
       var option = clonedData.splice(rnd(clonedData.length), 1)[0];
       choices.push({ 
         label: option.first + ' ' + option.last, 
-        value: option.id,
+        index: i,
         imgSrc: option.imgSrc 
       });
     }

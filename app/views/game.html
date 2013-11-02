@@ -15,7 +15,7 @@
 <div class="options-container padding" style="">
 	<div class="options">
       <a class="option" 
-         ng-click="select(option.value)"
+         ng-click="select($index)"
          ng-repeat="option in options">{{option.label}}</a>
     </div>
 </div>
