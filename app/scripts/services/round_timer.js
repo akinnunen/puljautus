@@ -1,9 +1,9 @@
 angular.module('vagrantApp')
-  .factory('roundTimer', function () {
+  .factory('roundTimer', function (appConfig) {
     'use strict';
 
     var RoundTimer = function() {
-      this.timeLeftInMillis = 30000;
+      this.timeLeftInMillis = appConfig.optionSelectTimeMillis;
       this.running = false;
     }
 
@@ -40,7 +40,7 @@ angular.module('vagrantApp')
       }
 
       this.running = false;
-      this.timeLeftInMillis = 30000;
+      this.timeLeftInMillis = appConfig.optionSelectTimeMillis;
     }
 
     RoundTimer.prototype.stop = function() {

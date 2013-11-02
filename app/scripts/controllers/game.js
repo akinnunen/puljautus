@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location, $log, state, $filter, nameGenerator, roundTimer) {
+angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location, $log, state, $filter, nameGenerator, roundTimer, appConfig, scoreCalculator) {
   
   if (state.mode === undefined) {
     $location.path('/');
@@ -28,7 +28,7 @@ angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location,
     disableOptions()
 
     if (index == $scope.correctAnswer.index) {
-      state.score = state.score + 1;
+      state.score = parseFloat(state.score) + parseFloat(scoreCalculator.calculate($scope.timer.timeLeftInMillis / 1000));
       $scope.options[index].correct = true
     } else {
       $scope.options[index].incorrect = true
@@ -39,7 +39,7 @@ angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location,
       $scope.$apply(function() {
         nextRound();
       });
-    }, 1500);
+    }, appConfig.optionSelectTimeoutMillis);
   }
 
   // Player cannot click links anymore after selection

@@ -6,7 +6,7 @@ angular.module('vagrantApp')
 
         return {
             state: state,
-            score: 0,
+            score: 0.0,
             gameModes: []
         };
     });
