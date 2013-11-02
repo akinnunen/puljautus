@@ -15,5 +15,5 @@ angular.module('vagrantApp').controller('MainCtrl', function ($scope, state, $lo
 
   state.gameRounds = 4;
   state.currentGameRound = 0;  
-
+  state.score = 0;
 });

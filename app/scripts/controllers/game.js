@@ -1,68 +1,74 @@
 'use strict';
 
-angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location, $log, state, $filter) {
+angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location, $log, state, $filter, nameGenerator, roundTimer) {
+  
   if (state.mode === undefined) {
     $location.path('/');
+    return;
   }
 
   $scope.state = state;
-  $scope.message = 'Hello!';
+  $scope.timer = roundTimer;
 
+  // Fetch current game mode fronm the JSON
   var data = $filter('getByMode')(state.gameModes, state.mode).options;
 
-  $scope.select = function(optionId) {
-    $log.info("Selected " + optionId);
+   // Since $scope.$watch 'timer' does not work
+  setInterval(function() {
+    $scope.$apply();
+  }, 1000); 
 
-    if (optionId == $scope.correctAnswer.id) {
-      $log.info("Correct answer");
-      state.score = state.score + 1; 
+  // Called when player selects an option
+  $scope.select = function(index) {
+
+    if ($scope.options[index].disabled)
+      return;
+
+    $scope.timer.stop();
+    disableOptions()
+
+    if (index == $scope.correctAnswer.index) {
+      state.score = state.score + 1;
+      $scope.options[index].correct = true
     } else {
-      $log.info("Incorrect answer");
+      $scope.options[index].incorrect = true
     }
 
-    nextRound();
+    // Let the player view the results for a while
+    setTimeout(function() {
+      $scope.$apply(function() {
+        nextRound();
+      });
+    }, 1500);
   }
 
+  // Player cannot click links anymore after selection
+  var disableOptions = function() {
+    angular.forEach($scope.options, function(option) {
+      option.disabled = true;
+    });
+  }
+
+  // Called when game starts or player has answered
   var nextRound = function() {
+
+    $scope.timer.reset();
+    $scope.timer.start();
+
     state.currentGameRound = state.currentGameRound + 1;
 
     if (state.currentGameRound > state.gameRounds) {
       $location.path("/score");
     }
 
-    $scope.options = generateRandomOptions();
-    $scope.correctAnswer = $scope.options[rnd($scope.options.length)];
-    console.log($scope.correctAnswer);
+    $scope.options = nameGenerator.generateRandomOptions(4, data);
+    $scope.correctAnswer = $scope.options[nameGenerator.rnd($scope.options.length)];
 
-    $log.info("Current game round: " + state.currentGameRound)
+    console.log($scope.correctAnswer);
   }
 
   var startGame = function() {
-    $log.info("Starting game in mode: " + state.mode);
-
     nextRound();
-  }
-
-  var generateRandomOptions = function() {
-    var clonedData = data.slice(0);
-    var choices = [];
-
-    $log.info("Generating 4 options from a set of " + clonedData.length);
-
-    for (var i=0; i<4; i++) {
-      var option = clonedData.splice(rnd(clonedData.length), 1)[0];
-      choices.push({ 
-        label: option.first + ' ' + option.last, 
-        value: option.id,
-        imgSrc: option.imgSrc 
-      });
-    }
-
-    return choices;
-  }
-
-  var rnd = function(num) {
-    return Math.floor(Math.random() * num);
   }
 
   startGame();

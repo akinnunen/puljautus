@@ -8,17 +8,19 @@
   <!-- <p>{{ message }}</p> -->
 
 
-    <div class="face">
-      <img class="faceimage" ng-src="images/monkey_face.jpg">
-    </div>
+<div class="face">
+  <img class="faceimage" ng-src="{{ correctAnswer.imgSrc }}">
+</div>
+
+<div class="timer">
+  <h1>{{ timer.timeLeftInMillis / 1000 }}</h1>
+</div>
 
 <div class="options-container padding" style="">
 	<div class="options">
       <a class="option" 
-         ng-click="select(option.value)"
+         ng-click="select($index)"
+         ng-class="{ 'correct': option.correct, 'incorrect': option.incorrect, 'disabled': option.disabled }"
          ng-repeat="option in options">{{option.label}}</a>
     </div>
-</div>
-  
-
 </div>
