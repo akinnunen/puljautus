@@ -43,5 +43,13 @@ angular.module('vagrantApp')
       this.timeLeftInMillis = 30000;
     }
 
+    RoundTimer.prototype.stop = function() {
+      if (this.activeTimeout) {
+        clearTimeout(this.activeTimeout);
+      }
+
+      this.running = false;
+    }
+
     return new RoundTimer();
   });
