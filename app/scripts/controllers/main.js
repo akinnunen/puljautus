@@ -9,11 +9,32 @@ angular.module('vagrantApp').controller('MainCtrl', function ($scope, state, $lo
     }
   }
 
-  GameModes.query(function(json) {
-    state.gameModes = $scope.gameModes = jsonConverter.convert(json);
+  GameModes.all(function(json) {
+
+    var modes = jsonConverter.getGameModeNamesAndUrls(json);
+
+    angular.forEach(modes, function(mode) {
+
+      mode.enabled = true;
+      mode.id = mode.name;
+
+      GameModes.modeOptions(mode.url, function(modeJson) {
+        var options = jsonConverter.getModeOptions(modeJson);
+        mode.options = options;
+        $scope.gameModes = state.gameModes = modes;
+      });
+
+    });
+
+    
   });
 
+  setTimeout(function() {
+    console.log($scope.gameModes)
+  }, 2000)
+
   state.gameRounds = 4;
-  state.currentGameRound = 0;  
-  state.score = 0;
+  state.currentGameRound = 0;
+  state.score = 0.0;
+
 });
