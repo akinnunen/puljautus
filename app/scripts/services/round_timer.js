@@ -15,7 +15,7 @@ angular.module('vagrantApp')
 
       var countdown = function() {
         timer.decrementSecond();
-        if (timer.leftInMillis > 0) {
+        if (timer.timeLeftInMillis > 0) {
           timer.activeTimeout = setTimeout(countdown, 1000)
         } else {
           timer.running = false;
