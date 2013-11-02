@@ -176,7 +176,6 @@ img.faceimage {
 			padding: 12px 0;
 			text-shadow: 0px -1px 0 rgba(0, 0, 0, 0.3);
 			text-transform: capitalize;
-			transition: all 0.2s ease 0s;
 			width: 46%;
 			
 			border:1px solid #15aeec; -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px;font-size:12px;font-family:tahoma, verdana, arial, sans-serif; padding: 10px 10px 10px 10px; text-decoration:none; display:inline-block;text-shadow: -1px -1px 0 rgba(0,0,0,0.3);font-weight:bold; color: #FFFFFF;
@@ -186,9 +185,20 @@ img.faceimage {
  background-image: -ms-linear-gradient(top, #49c0f0, #2CAFE3);
  background-image: -o-linear-gradient(top, #49c0f0, #2CAFE3);
  background-image: linear-gradient(to bottom, #49c0f0, #2CAFE3);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#49c0f0, endColorstr=#2CAFE3);
+
+		  -webkit-transition: all .8s ease;
+		       -moz-transition: all .8s ease;
+		        -ms-transition: all .8s ease;
+		         -o-transition: all .8s ease;
+		            transition: all .8s ease;
 			}
 
         a.disabled {
+  -webkit-transition: all .8s ease;
+		       -moz-transition: all .8s ease;
+		        -ms-transition: all .8s ease;
+		         -o-transition: all .8s ease;
+		            transition: all .8s ease;
 
         }
 
@@ -200,6 +210,12 @@ img.faceimage {
 			 background-image: -ms-linear-gradient(top, #a9db80, #96c56f);
 			 background-image: -o-linear-gradient(top, #a9db80, #96c56f);
 			 background-image: linear-gradient(to bottom, #a9db80, #96c56f);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#a9db80, endColorstr=#96c56f);
+  -webkit-transition: all .8s ease;
+		       -moz-transition: all .8s ease;
+		        -ms-transition: all .8s ease;
+		         -o-transition: all .8s ease;
+		            transition: all .8s ease;
+
         }
 
         a.incorrect {
@@ -209,7 +225,13 @@ img.faceimage {
 			 background-image: -moz-linear-gradient(top, #f62b2b, #d20202);
 			 background-image: -ms-linear-gradient(top, #f62b2b, #d20202);
 			 background-image: -o-linear-gradient(top, #f62b2b, #d20202);
-			 background-image: linear-gradient(to bottom, #f62b2b, #d20202);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f62b2b, endColorstr=#d20202);			 
+			 background-image: linear-gradient(to bottom, #f62b2b, #d20202);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f62b2b, endColorstr=#d20202);
+			   -webkit-transition: all .8s ease;
+		       -moz-transition: all .8s ease;
+		        -ms-transition: all .8s ease;
+		         -o-transition: all .8s ease;
+		            transition: all .8s ease;
+
         }
 	}
 }
@@ -233,7 +255,6 @@ img.faceimage {
 }
 
 .score-container {
-	max-width: 960px; /* to be enhanced later on */
 	text-align: center;
 	margin: 0 auto;
 	.score-msg {
@@ -269,5 +290,11 @@ span.tiem {
 @media only screen and (max-width: 420px) {
 	.options-container .options a {
 		width: 95%;
+	}
+}
+
+@media only screen and (min-width: 420px) {
+	.indicator {
+		top: 55px;
 	}
 }
