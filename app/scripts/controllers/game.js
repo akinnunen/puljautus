@@ -55,10 +55,6 @@ angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location,
 
     $scope.options = nameGenerator.generateRandomOptions(4, data);
     $scope.correctAnswer = $scope.options[nameGenerator.rnd($scope.options.length)];
-
-    console.log($scope.options.length)
-
-    console.log($scope.correctAnswer);
   }
 
   var startGame = function() {

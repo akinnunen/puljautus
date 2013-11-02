@@ -33,7 +33,7 @@ angular.module('vagrantApp').controller('MainCtrl', function ($scope, state, $lo
     console.log($scope.gameModes)
   }, 2000)
 
-  state.gameRounds = 4;
+  state.gameRounds = 21;
   state.currentGameRound = 0;
   state.score = 0.0;
 
