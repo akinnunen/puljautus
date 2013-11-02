@@ -130,12 +130,13 @@ p.current-score {
     position: relative;
 }
 img.faceimage {
-    border: 4px solid #FFFFFF;
-    border-radius: 200px 200px 200px 200px;
-    bottom: 80px;	
-    box-shadow: 0 0 35px #000000;
+	border: 4px solid #FFFFFF;
+    border-radius: 0 140px 0 200px;
+    bottom: 80px;
+    box-shadow: 0 0 35px #CFCFCF;
     display: block;
     margin: 0 auto;
+    min-height: 195px;
     position: relative;
     text-align: center;
     width: 130px;
@@ -221,8 +222,8 @@ img.faceimage {
 	top: 20px;
 	border: 1px solid rgba(0,0,0,0.5);
 	background: rgba(0,0,0,0.2);
-	border-radius: 3px 3px 3px 3px;
 	padding: 5px;
+	display: inline-block;
 
     h1 {
         margin: 0px;
@@ -239,5 +240,33 @@ img.faceimage {
 	}
 	.score-points {
       color: white;
+	}
+}
+
+span.tiem {
+	background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 80px 80px 80px 80px;
+    bottom: 30px;
+    clear: both;
+    color: #000000;
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    width: 20px;
+}
+
+.indicator {
+	text-align: center;
+	color: white;
+	display: inline;
+	position: relative;
+	top: 53px;
+	padding: 5px;
+	display: inline-block;
+}
+
+@media only screen and (max-width: 420px) {
+	.options-container .options a {
+		width: 95%;
 	}
 }
