@@ -20,7 +20,7 @@
 	<div class="options">
       <a class="option" 
          ng-click="select($index)"
-         ng-class="{ 'correct': option.correct, 'incorrect': option.incorrect }"
+         ng-class="{ 'correct': option.correct, 'incorrect': option.incorrect, 'disabled': option.disabled }"
          ng-repeat="option in options">{{option.label}}</a>
     </div>
 </div>

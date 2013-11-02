@@ -21,7 +21,11 @@ angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location,
   // Called when player selects an option
   $scope.select = function(index) {
 
-    $log.info("Selected " + index);
+    if ($scope.options[index].disabled)
+      return;
+
+    $scope.timer.stop();
+    disableOptions()
 
     if (index == $scope.correctAnswer.index) {
       state.score = state.score + 1;
@@ -30,11 +34,19 @@ angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location,
       $scope.options[index].incorrect = true
     }
 
+    // Let the player view the results for a while
     setTimeout(function() {
       $scope.$apply(function() {
         nextRound();
       });
     }, 1500);
+  }
+
+  // Player cannot click links anymore after selection
+  var disableOptions = function() {
+    angular.forEach($scope.options, function(option) {
+      option.disabled = true;
+    });
   }
 
   // Called when game starts or player has answered
@@ -53,13 +65,9 @@ angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location,
     $scope.correctAnswer = $scope.options[nameGenerator.rnd($scope.options.length)];
 
     console.log($scope.correctAnswer);
-    console.log($scope.options);
-
-    $log.info("Current game round: " + state.currentGameRound)
   }
 
   var startGame = function() {
-    $log.info("Starting game in mode: " + state.mode);
     nextRound();
   }
 
