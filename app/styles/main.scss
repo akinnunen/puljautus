@@ -54,8 +54,7 @@ h1 {
 			padding: 15px;
 			margin: 10px 0;
 			font-family: Georgia, serif;
-			font-weight: 1.4em;
-			font-style: italic;
+			font-weight: 16px!important;
 			font-weight: bold;
 			text-shadow: 0px 2px 0px black;
 			-moz-text-shadow: 0px 2px 0px black;
@@ -63,6 +62,15 @@ h1 {
 			font-size: 1.4em;
 			border: 1px solid rgba(0,0,0,0.3);
 			opacity: 0.5;
+			
+			border:1px solid #15aeec; -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px;font-size:12px;font-family:tahoma, verdana, arial, sans-serif; padding: 10px 10px 10px 10px; text-decoration:none; text-shadow: -1px -1px 0 rgba(0,0,0,0.3);font-weight:bold; color: #FFFFFF;
+ background-color: #49c0f0; background-image: -webkit-gradient(linear, left top, left bottom, from(#49c0f0), to(#2CAFE3));
+ background-image: -webkit-linear-gradient(top, #49c0f0, #2CAFE3);
+ background-image: -moz-linear-gradient(top, #49c0f0, #2CAFE3);
+ background-image: -ms-linear-gradient(top, #49c0f0, #2CAFE3);
+ background-image: -o-linear-gradient(top, #49c0f0, #2CAFE3);
+ background-image: linear-gradient(to bottom, #49c0f0, #2CAFE3);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#49c0f0, endColorstr=#2CAFE3);
+
 		}
 	}
 }
@@ -207,6 +215,13 @@ img.faceimage {
 	text-align: center;
 	color: white;
 	font-weight: bold;
+	display: inline;
+	position: relative;
+	top: 20px;
+	border: 1px solid rgba(0,0,0,0.5);
+	background: rgba(0,0,0,0.2);
+	border-radius: 3px 3px 3px 3px;
+	padding: 5px;
 
     h1 {
         margin: 0px;
