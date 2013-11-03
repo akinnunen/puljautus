@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('vagrantApp').controller('MainCtrl', function ($scope, state, $location, jsonConverter, GameModes) {
+angular.module('vagrantApp').controller('MainCtrl', function ($scope, state, $location, jsonConverter, GameModes, appConfig) {
     
   $scope.play = function(mode) {
     if (mode.enabled) {
@@ -34,7 +34,7 @@ angular.module('vagrantApp').controller('MainCtrl', function ($scope, state, $lo
     
   });
 
-  state.gameRounds = 21;
+  state.gameRounds = appConfig.gameRounds;
   state.currentGameRound = 0;
   state.score = 0.0;
 

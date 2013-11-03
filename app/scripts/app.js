@@ -25,6 +25,6 @@ angular.module('vagrantApp').constant('appConfig', {
   optionSelectTimeoutMillis: 1500,     // How long before next question is displayed after answering
   optionSelectTimeMillis: 30000,       // How long the player has time to answer to a question
   maxPointsPerQuestion: 10,
-  dataJsonUrl: '/data/gamemodes.json', // Where all data is fetched
-  googleSpreadsheetKey: '0Atbg9aXL_oUWdEx5V2lSLUc3M1VGT3MtNnhxUGpqNVE'
+  googleSpreadsheetKey: '0Atbg9aXL_oUWdEx5V2lSLUc3M1VGT3MtNnhxUGpqNVE',
+  gameRounds: 21
 });

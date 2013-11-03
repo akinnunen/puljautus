@@ -18,9 +18,10 @@ angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location,
 
     if (index == $scope.correctAnswer.index) {
       state.score = (parseFloat(state.score) + parseFloat(scoreCalculator.calculate($scope.timer.timeLeftInMillis / 1000))).toFixed(1);
-      $scope.options[index].correct = true
+      $scope.options[index].correct = true;
     } else {
-      $scope.options[index].incorrect = true
+      $scope.options[index].incorrect = true;
+      $scope.correctAnswer.correct = true;
     }
 
     // Let the player view the results for a while
@@ -59,15 +60,13 @@ angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location,
 
   var startGame = function() {
 
-  $scope.state = state;
-  $scope.timer = roundTimer;
+    $scope.state = state;
+    $scope.timer = roundTimer;
 
-
-
-   // Since $scope.$watch 'timer' does not work
-  setInterval(function() {
-    $scope.$apply();
-  }, 1000); 
+     // Since $scope.$watch 'timer' does not work
+    setInterval(function() {
+      $scope.$apply();
+    }, 1000); 
 
     nextRound();
   }
