@@ -63,6 +63,7 @@ h1 {
 			font-size: 1.4em;
 			border: 1px solid rgba(0,0,0,0.3);
 			opacity: 0.5;
+            text-transform: capitalize;
 			
 			border:1px solid #15aeec; -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px;font-size:12px;font-family:tahoma, verdana, arial, sans-serif; padding: 10px 10px 10px 10px; text-decoration:none; text-shadow: -1px -1px 0 rgba(0,0,0,0.3);font-weight:bold; color: #FFFFFF;
  background-color: #49c0f0; background-image: -webkit-gradient(linear, left top, left bottom, from(#49c0f0), to(#2CAFE3));
@@ -301,4 +302,8 @@ span.tiem {
 	.indicator {
 		top: 55px;
 	}
+}
+
+.alert-block a {
+    color: #0088CC;
 }

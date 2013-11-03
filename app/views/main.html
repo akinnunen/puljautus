@@ -5,8 +5,21 @@
 	<p class="about">Get to know your colleagues!</p>
 </div>
 <div class="mode-container padding">
-	<span class="timer" style="background: none; border: none; display: block; margin: 0 0 30px 0">Choose your game mode!</span>
+
+    <div ng-hide="googleSsoError || gameModes">
+        <br/><img src="images/ajax-loader.gif" />
+    </div>
+	
+    <span ng-show="gameModes" class="timer" style="display: none; background: none; border: none; display: block; margin: 0 0 30px 0">Choose your game mode!</span>
+
 	<div class="mode">
 		<a ng-class="{'active': mode.enabled}" ng-repeat="mode in gameModes" ng-click="play(mode)">{{mode.name}}</a>
 	</div>
+
+    <div ng-show="googleSsoError" class="alert alert-block alert-error">
+        <h4>Failed to load data from Google Docs!</h4>
+        <p><br/>This is most probably related to a known bug (<a href="http://goo.gl/jNceli">http://goo.gl/jNceli</a>) in Google SSO.</p>
+        <p>You need to clear any expired Google sessions from the browser cache or sign into Google.</p>
+    </div>
+
 </div>

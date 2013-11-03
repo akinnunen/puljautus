@@ -11,6 +11,11 @@ angular.module('vagrantApp').controller('MainCtrl', function ($scope, state, $lo
 
   GameModes.all(function(json) {
 
+    if (json == null) {
+      $scope.googleSsoError = true
+      return;
+    }
+
     var modes = jsonConverter.getGameModeNamesAndUrls(json);
 
     angular.forEach(modes, function(mode) {
@@ -28,10 +33,6 @@ angular.module('vagrantApp').controller('MainCtrl', function ($scope, state, $lo
 
     
   });
-
-  setTimeout(function() {
-    console.log($scope.gameModes)
-  }, 2000)
 
   state.gameRounds = 21;
   state.currentGameRound = 0;

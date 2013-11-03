@@ -8,6 +8,8 @@ angular.module('vagrantApp').factory('GameModes', function($http, appConfig) {
     all: function(callback) {
       $http.jsonp(spreadsheetUrl).success(function(data) {
         callback(data);
+      }).error(function(data, status, headers, config) {
+        callback(null);
       });
     },
 
