@@ -16,16 +16,15 @@ angular.module('vagrantApp').controller('MainCtrl', function ($scope, state, $lo
       $scope.googleSsoError = true;
    }).then(function(modesJson) {
 
-    if ($scope.googleSsoError) {
+    if ($scope.googleSsoError)
       return;
-    }
       
     var modes = jsonConverter.getGameModeNamesAndUrls(modesJson);
 
     // Make queries for each sheet and construct promises array
     var promises = [];
     angular.forEach(modes, function(mode) {
-      mode.enabled = true;
+      mode.enabled = true; // These should be passed via the Google Docs JSON somehow
       mode.id = mode.name;
       promises.push(GameModes.modeOptions(mode.url));
     });
