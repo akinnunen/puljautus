@@ -23,6 +23,7 @@ angular.module('vagrantApp').controller('MainCtrl', function ($scope, state, $lo
 
     // Make queries for each sheet and construct promises array
     var promises = [];
+    
     angular.forEach(modes, function(mode) {
       mode.enabled = true; // These should be passed via the Google Docs JSON somehow
       mode.id = mode.name;
@@ -39,7 +40,11 @@ angular.module('vagrantApp').controller('MainCtrl', function ($scope, state, $lo
       });
 
       $scope.gameModes = state.gameModes = modes;
+
+      imagePreloader.preloadForAllModes(modes);
+
     });
+
   });
 
   state.gameRounds = appConfig.gameRounds;
