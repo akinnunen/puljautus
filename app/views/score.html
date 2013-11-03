@@ -1,21 +1,20 @@
-<div class="header">
-
+<div class="header">    
     <a class="menu" href="#/">Back to menu</a>
-	<div class="logo">
-		<img src="images/avaus-logo.png" width="125" />
-	</div>
+    <div class="logo">
+        <img src="images/avaus-logo.png" width="125" />
+    </div>
 </div>
 
 <div class="face">
-	<img class="faceimage" ng-src="images/monkey_face.jpg">
-<div class="score-container">
-<div class="options-container padding" style="">
-	<div class="options">
-		<h1 ng-show="state.score < maxPoints / 2">Oh noes!</h1>
-		<h1 ng-show="state.score >= maxPoints / 2">VICTORY!</h1>
-		<strong>{{state.score}} / {{ maxPoints }} points</strong>
+    <img class="faceimage" ng-src="{{ victory && 'images/victory.jpg' || 'images/fail.jpg' }}">
+</div>
+
+<div class="options-container padding">
+    <div class="options">
+        <h1 ng-show="!victory">Oh noes!</h1>
+        <h1 ng-show="victory">VICTORY!</h1>
+        <strong>{{state.score}} / {{ maxPoints }} points</strong>
         <!-- <div>{{ shatnerQuote }}</div> -->
-      <a class="option" 		  
-    <a class="active" style="display:block; margin: 15px auto;" ng-click="toMain()">Back to main</a>
+        <a class="active" style="display:block; margin: 15px auto;" ng-click="toMain()">Start a new game!</a>
     </div>
 </div>

@@ -6,7 +6,6 @@ angular.module('vagrantApp').controller('MainCtrl', function ($scope, state, $lo
     if (mode.enabled) {
       state.mode = mode.id;
       $location.path('/game');
-
     }
   }
 

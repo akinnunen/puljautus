@@ -4,6 +4,7 @@
 	</div>
 	<p class="about">Get to know your colleagues!</p>
 </div>
+
 <div class="mode-container padding">
 
     <div ng-hide="googleSsoError || gameModes">
@@ -16,10 +17,13 @@
 		<a ng-class="{'active': mode.enabled}" ng-repeat="mode in gameModes" ng-click="play(mode)">{{mode.name}}</a>
 	</div>
 
-    <div ng-show="googleSsoError" class="alert alert-block alert-error">
-        <h4>Failed to load data from Google Docs!</h4>
-        <p><br/>This is most probably related to a known bug (<a href="http://goo.gl/jNceli">http://goo.gl/jNceli</a>) in Google SSO.</p>
-        <p>You need to clear any expired Google sessions from the browser cache or sign into Google.</p>
+    <div ng-show="googleSsoError">
+        <br/>
+        <div class="alert alert-block alert-error">
+            <h4>Failed to load data from Google Docs!</h4>
+            <p><br/>This is most probably related to a known bug (<a href="http://goo.gl/jNceli">http://goo.gl/jNceli</a>) in Google SSO.</p>
+            <p>You need to <b>clear the browser cache</b> or <b>sign into Google</b>.</p>
+        </div>
     </div>
 
 </div>

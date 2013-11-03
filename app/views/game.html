@@ -1,19 +1,15 @@
 <div class="header">
     <a class="menu" href="#/">Back to menu</a>
-	<div class="logo">
-		<img src="images/avaus-logo.png" width="125" />
+    <div class="logo">
+        <img src="images/avaus-logo.png" width="125" />
 	</div>
 </div>
-  <!-- <p>{{ message }}</p> -->
-
 
 <div class="face">
-  <img class="faceimage" ng-src="{{ correctAnswer.imgUrl }}">
+    <img class="faceimage" ng-src="{{ correctAnswer.imgUrl }}">
 </div>
 
-
-
-<div class="options-container padding" style="">
+<div class="options-container padding">
 	<div class="options">
       <a class="option" 
          ng-click="select($index)"
@@ -22,5 +18,5 @@
     </div>
     <div class="indicator">
 		<span class="timer-count"><span class="tiem">{{ timer.timeLeftInMillis / 1000 }}</span> Round {{ state.currentGameRound }}/{{ state.gameRounds }}</span>
-  </div>
+    </div>
 </div>
