@@ -11,16 +11,11 @@
 <div class="score-container">
 <div class="options-container padding" style="">
 	<div class="options">
-		<h1 ng-show="state.score < 2">Oh noes!</h1>
-		<h1 ng-show="state.score >= 2">VICTORY!</h1>
-		<strong>{{state.score}} points</strong>
+		<h1 ng-show="state.score < maxPoints / 2">Oh noes!</h1>
+		<h1 ng-show="state.score >= maxPoints / 2">VICTORY!</h1>
+		<strong>{{state.score}} / {{ maxPoints }} points</strong>
+        <!-- <div>{{ shatnerQuote }}</div> -->
       <a class="option" 		  
     <a class="active" style="display:block; margin: 15px auto;" ng-click="toMain()">Back to main</a>
     </div>
 </div>
-
-
-
-  
-
-

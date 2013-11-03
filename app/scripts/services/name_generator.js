@@ -9,14 +9,14 @@ angular.module('vagrantApp').factory('nameGenerator', function($log) {
       var clonedData = data.slice(0);
       var choices = [];
 
-      $log.info("Generating 4 options from a set of " + clonedData.length);
+      // $log.info("Generating 4 options from a set of " + clonedData.length);
 
       for (var i = 0; i < n; i++) {
         var option = clonedData.splice(generator.rnd(clonedData.length), 1)[0];
         choices.push({ 
-          label: option.first + ' ' + option.last, 
+          label: option.label, 
           index: i,
-          imgSrc: option.imgSrc 
+          imgUrl: option.imgUrl 
         });
       }
 
