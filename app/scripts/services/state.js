@@ -1,12 +1,13 @@
-angular.module('vagrantApp')
-    .factory('state', function () {
-        'use strict';
+angular.module('vagrantApp').factory('state', function () {
+  
+  'use strict';
 
-        var state = {};
+  var state = {};
 
-        return {
-            state: state,
-            score: 0.0,
-            gameModes: []
-        };
-    });
+  return {
+    state: state,
+    score: 0.0,
+    gameModes: []
+  };
+
+});

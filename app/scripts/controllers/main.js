@@ -7,16 +7,17 @@ angular.module('vagrantApp').controller('MainCtrl', function ($scope, state, $lo
       state.mode = mode.id;
       $location.path('/game');
     }
-  }
+  };
 
   GameModes.all().then(function(json) {
-     return json.data;
-   }, function(error) {
-      $scope.googleSsoError = true;
-   }).then(function(modesJson) {
+    return json.data;
+  }, function() {
+    $scope.googleSsoError = true;
+  }).then(function(modesJson) {
 
-    if ($scope.googleSsoError)
+    if ($scope.googleSsoError) {
       return;
+    }
       
     var modes = jsonConverter.getGameModeNamesAndUrls(modesJson);
 

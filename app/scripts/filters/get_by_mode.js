@@ -1,4 +1,7 @@
-angular.module('vagrantApp').filter("getByMode", function() {
+angular.module('vagrantApp').filter('getByMode', function() {
+
+  'use strict';
+  
   return function(input, mode) {
     var i, len;
     i = 0;

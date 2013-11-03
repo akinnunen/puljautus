@@ -10,13 +10,14 @@ angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location,
   // Called when player selects an option
   $scope.select = function(index) {
 
-    if ($scope.options[index].disabled)
+    if ($scope.options[index].disabled) {
       return;
+    }
 
     $scope.timer.stop();
-    disableOptions()
+    disableOptions();
 
-    if (index == $scope.correctAnswer.index) {
+    if (index === $scope.correctAnswer.index) {
       state.score = (parseFloat(state.score) + parseFloat(scoreCalculator.calculate($scope.timer.timeLeftInMillis / 1000))).toFixed(1);
       $scope.options[index].correct = true;
     } else {
@@ -30,14 +31,14 @@ angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location,
         nextRound();
       });
     }, appConfig.optionSelectTimeoutMillis);
-  }
+  };
 
   // Player cannot click links anymore after selection
   var disableOptions = function() {
     angular.forEach($scope.options, function(option) {
       option.disabled = true;
     });
-  }
+  };
 
   // Called when game starts or player has answered
   var nextRound = function() {
@@ -48,7 +49,7 @@ angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location,
     state.currentGameRound = state.currentGameRound + 1;
 
     if (state.currentGameRound > state.gameRounds) {
-      $location.path("/score");
+      $location.path('/score');
     }
 
     // Fetch current game mode fronm the JSON
@@ -56,7 +57,7 @@ angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location,
 
     $scope.options = nameGenerator.generateRandomOptions(4, data);
     $scope.correctAnswer = $scope.options[nameGenerator.rnd($scope.options.length)];
-  }
+  };
 
   var startGame = function() {
 
@@ -66,10 +67,10 @@ angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location,
      // Since $scope.$watch 'timer' does not work
     setInterval(function() {
       $scope.$apply();
-    }, 1000); 
+    }, 1000);
 
     nextRound();
-  }
+  };
 
   startGame();
 

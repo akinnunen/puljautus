@@ -1,4 +1,4 @@
-angular.module('vagrantApp').factory('nameGenerator', function($log) {
+angular.module('vagrantApp').factory('nameGenerator', function() {
     
   'use strict';
 
@@ -13,10 +13,10 @@ angular.module('vagrantApp').factory('nameGenerator', function($log) {
 
       for (var i = 0; i < n; i++) {
         var option = clonedData.splice(generator.rnd(clonedData.length), 1)[0];
-        choices.push({ 
-          label: option.label, 
+        choices.push({
+          label: option.label,
           index: i,
-          imgUrl: option.imgUrl 
+          imgUrl: option.imgUrl
         });
       }
 

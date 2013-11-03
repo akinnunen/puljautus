@@ -1,4 +1,4 @@
-angular.module('vagrantApp').factory('imagePreloader', function($log) {
+angular.module('vagrantApp').factory('imagePreloader', function() {
     
   'use strict';
 
