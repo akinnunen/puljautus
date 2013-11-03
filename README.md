@@ -6,7 +6,7 @@ A game where player tries to guess persons name, position, project etc. Live dem
 ## Production configuration
 
 * create a new spreadsheet into google docs
-** add one sheet per game mode
+* add sheet per game mode
 ![image](http://www.amigapallo.org/akinnunen/webdev/gd_example.jpg)
 * column A1 has to contain text 'label' and A2 text 'imgUrl'
 * add at least 5 rows per sheet
