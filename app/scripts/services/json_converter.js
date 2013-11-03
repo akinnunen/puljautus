@@ -15,7 +15,6 @@ angular.module('vagrantApp').factory('jsonConverter', function(GameModes) {
                 var url = each.link[1].href;
                 data.push({ name: name, url: url + '?alt=json-in-script&callback=JSON_CALLBACK' })
             });
-            
             return data;
         },
 

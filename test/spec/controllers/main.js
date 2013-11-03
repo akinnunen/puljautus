@@ -12,32 +12,79 @@ describe('Controller: MainCtrl', function () {
     httpBackend;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope, $location, $httpBackend) {
+  beforeEach(inject(function ($controller, $rootScope, $location, $httpBackend, appConfig) {
     httpBackend = $httpBackend;
     scope = $rootScope.$new();
     location = $location;
     location.url('/');
     state = {
-      currentGameRound: 4,
+      currentGameRound: appConfig.gameRounds,
       score: 1234
     };
     
-    var gameModes = [
-      {
-        "id":"names",
-        "name":"Nimet",
-        "enabled":true,
-        "options": []
-      },
-      {
-        "id":"names",
-        "name":"Nimet",
-        "enabled":true,
-        "options": []
+    var modesJson = { 
+      feed: { 
+        entry: [
+          {
+            content: {
+              $t: 'names',
+            },
+            link: [
+              {}, { href: 'worksheets' }
+            ]
+          },
+          {
+            content: {
+              $t: 'titles',
+            },
+            link: [
+              {}, { href: 'worksheets' }
+            ]
+          }
+        ]
       }
-    ];
+    }
 
-    $httpBackend.when('GET', '/data/gamemodes.json').respond(gameModes);
+    var optionsJson = { 
+      feed: { 
+        entry: [
+          {
+            title: {
+              $t: 'A1'
+            },
+            content: {
+              $t: 'label'
+            }
+          }, {
+            title: {
+              $t: 'B1'
+            },
+            content: {
+              $t: 'imgUrl'
+            }
+          }, {
+            title: {
+              $t: 'A2'
+            },
+            content: {
+              $t: 'makki karvalakki'
+            }
+          }, {
+            title: {
+              $t: 'B2'
+            },
+            content: {
+              $t: 'http://www.example.com/makki.png'
+            }
+          }
+        ]
+      }
+    }
+
+    $httpBackend.expectJSONP(/.*spreadsheets.*/)
+    $httpBackend.expectJSONP(/.*worksheets.*/)
+    $httpBackend.whenJSONP(/.*spreadsheets.*/).respond(JSON.stringify(modesJson));
+    $httpBackend.whenJSONP(/.*worksheets.*/).respond(JSON.stringify(optionsJson));
 
     MainCtrl = $controller('MainCtrl', {
       $scope: scope,
@@ -55,7 +102,7 @@ describe('Controller: MainCtrl', function () {
   });
 
   it('should set game rounds', function() {
-    expect(state.gameRounds).toBe(4);
+    expect(state.gameRounds).toBe(20);
   });
 
   it('should reset score', function() {
