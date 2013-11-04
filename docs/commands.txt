@@ -1,0 +1,11 @@
+Create distribution
+
+- grunt build
+
+Start server
+
+- grunt server
+
+Run tests
+
+- grunt test
