@@ -12,7 +12,7 @@
 <div class="options-container padding">
 	<div class="options">
       <a class="option" 
-         ng-click="select($index)"
+         ng-click="select(option)"
          ng-class="{ 'correct': option.correct, 'incorrect': option.incorrect, 'disabled': option.disabled }"
          ng-repeat="option in options">{{option.label}}</a>
     </div>

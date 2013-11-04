@@ -45,6 +45,8 @@ angular.module('vagrantApp').factory('jsonConverter', function() {
         }
 
         options[(rowNumber - 2)][dataType] = value;
+        options[(rowNumber - 2)].id = rowNumber;
+        
 
       });
 

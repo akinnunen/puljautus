@@ -14,7 +14,7 @@
     <span ng-show="gameModes" class="timer" style="display: none; background: none; border: none; display: block; margin: 0 0 30px 0">Choose your game mode!</span>
 
 	<div class="mode">
-		<a ng-class="{'active': mode.enabled}" ng-repeat="mode in gameModes" ng-click="play(mode)">{{mode.name}}</a>
+		<a class="active" ng-repeat="mode in gameModes" ng-click="play(mode)">{{mode.name}}</a>
 	</div>
 
     <div ng-show="googleSsoError">

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location, $log, state, $filter, nameGenerator, roundTimer, appConfig, scoreCalculator) {
+angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location, state, roundTimer, appConfig, scoreCalculator, utils) {
   
   if (state.mode === undefined) {
     $location.path('/');
@@ -8,20 +8,20 @@ angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location,
   }
 
   // Called when player selects an option
-  $scope.select = function(index) {
+  $scope.select = function(answer) {
 
-    if ($scope.options[index].disabled) {
+    if (answer.disabled) {
       return;
     }
 
     $scope.timer.stop();
     disableOptions();
 
-    if (index === $scope.correctAnswer.index) {
+    if (answer === $scope.correctAnswer) {
       state.score = (parseFloat(state.score) + parseFloat(scoreCalculator.calculate($scope.timer.timeLeftInMillis / 1000))).toFixed(1);
-      $scope.options[index].correct = true;
+      answer.correct = true;
     } else {
-      $scope.options[index].incorrect = true;
+      answer.incorrect = true;
       $scope.correctAnswer.correct = true;
     }
 
@@ -40,11 +40,17 @@ angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location,
     });
   };
 
+  // Clear all flags set in this round
+  var clearOptionFlags = function() {
+    angular.forEach($scope.options, function(option) {
+      delete option.disabled;
+      delete option.correct;
+      delete option.incorrect;
+    });
+  };
+
   // Called when game starts or player has answered
   var nextRound = function() {
-
-    $scope.timer.reset();
-    $scope.timer.start();
 
     state.currentGameRound = state.currentGameRound + 1;
 
@@ -52,11 +58,26 @@ angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location,
       $location.path('/score');
     }
 
-    // Fetch current game mode fronm the JSON
-    var data = $filter('getByMode')(state.gameModes, state.mode).options;
+    clearOptionFlags();
 
-    $scope.options = nameGenerator.generateRandomOptions(4, data);
-    $scope.correctAnswer = $scope.options[nameGenerator.rnd($scope.options.length)];
+    $scope.timer.reset();
+    $scope.timer.start();
+
+    setupRoundOptions();
+  };
+
+  var setupRoundOptions = function() {
+
+    $scope.options = [];
+
+    var currentOption = state.options[state.currentGameRound - 1];
+    $scope.correctAnswer = currentOption;
+    $scope.options.push(currentOption);
+
+    var allOptionsExceptCorrectAnswer = utils.cloneArrayWithoutAnItem(state.options, currentOption);
+    var incorrectAnswers = utils.shuffleArray(allOptionsExceptCorrectAnswer, appConfig.questionsPerRound - 1);
+
+    $scope.options = utils.shuffleArray($scope.options.concat(incorrectAnswers));
   };
 
   var startGame = function() {

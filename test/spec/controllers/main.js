@@ -114,8 +114,4 @@ describe('Controller: MainCtrl', function () {
     expect(location.url()).toBe('/game');
   });
 
-  it('should not change location to game when disabled mode is selected', function() {
-    scope.play({enabled: false});
-    expect(location.url()).toBe('/');
-  });
 });

@@ -3,10 +3,9 @@
 angular.module('vagrantApp').controller('MainCtrl', function ($scope, state, $location, jsonConverter, GameModes, appConfig, imagePreloader, $q) {
     
   $scope.play = function(mode) {
-    if (mode.enabled) {
-      state.mode = mode.id;
-      $location.path('/game');
-    }
+    state.mode = mode;
+    state.options = mode.options;
+    $location.path('/game');
   };
 
   GameModes.all().then(function(json) {
@@ -25,8 +24,6 @@ angular.module('vagrantApp').controller('MainCtrl', function ($scope, state, $lo
     var promises = [];
     
     angular.forEach(modes, function(mode) {
-      mode.enabled = true; // These should be passed via the Google Docs JSON somehow
-      mode.id = mode.name;
       promises.push(GameModes.modeOptions(mode.url));
     });
 

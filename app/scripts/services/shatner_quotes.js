@@ -1,4 +1,4 @@
-angular.module('vagrantApp').factory('shatnerQuotes', function(nameGenerator) {
+angular.module('vagrantApp').factory('shatnerQuotes', function(utils) {
 
   'use strict';
 
@@ -17,7 +17,7 @@ angular.module('vagrantApp').factory('shatnerQuotes', function(nameGenerator) {
 
   var quotes = {
     getOne: function() {
-      return all[nameGenerator.rnd(all.length)];
+      return all[utils.rnd(all.length)];
     }
   };
 

@@ -25,5 +25,6 @@ angular.module('vagrantApp').constant('appConfig', {
   optionSelectTimeMillis: 30000,       // How long the player has time to answer to a question
   maxPointsPerQuestion: 10,
   gameRounds: 20,
+  questionsPerRound: 4,
   googleSpreadsheetKey: '0Atbg9aXL_oUWdEx5V2lSLUc3M1VGT3MtNnhxUGpqNVE'
 });
