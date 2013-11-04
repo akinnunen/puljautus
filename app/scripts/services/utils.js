@@ -29,6 +29,17 @@ angular.module('vagrantApp').factory('utils', function () {
       return cloned;
     },
 
+    cloneArrayWithoutSameItemValues: function(array, item, attributeName) {
+      var cloned = array.slice(0);
+      var results = [];
+      for (var each in cloned) {
+        if (cloned[each][attributeName] !== item[attributeName]) {
+          results.push(cloned[each]);
+        }
+      }
+      return results;
+    },
+
     rnd: function(num) {
       return Math.floor(Math.random() * num);
     }

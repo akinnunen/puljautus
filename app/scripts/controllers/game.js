@@ -74,7 +74,7 @@ angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location,
     $scope.correctAnswer = currentOption;
     $scope.options.push(currentOption);
 
-    var allOptionsExceptCorrectAnswer = utils.cloneArrayWithoutAnItem(state.options, currentOption);
+    var allOptionsExceptCorrectAnswer = utils.cloneArrayWithoutSameItemValues(state.options, currentOption, 'label');
     var incorrectAnswers = utils.shuffleArray(allOptionsExceptCorrectAnswer, appConfig.questionsPerRound - 1);
 
     $scope.options = utils.shuffleArray($scope.options.concat(incorrectAnswers));
