@@ -30,4 +30,3 @@ A game where player tries to guess persons name, position, project etc. Live dem
 
 * questions are totally random so same questions can be asked multiple times
 * 3 out of 4 answers are also picked randomly so there can be same answer multiple times
-* grunt currently fails minifying main.css because of https://github.com/yeoman/yeoman/issues/411

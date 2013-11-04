@@ -1,12 +1,14 @@
 <div class="header">    
     <a class="menu" href="#/">Back to menu</a>
     <div class="logo">
-        <img src="images/avaus-logo.png" width="125" />
+        <img revved-src="/images/avaus-logo.png" width="125" />
     </div>
 </div>
 
 <div class="face">
-    <img class="faceimage" ng-src="{{ victory && 'images/victory.jpg' || 'images/fail.jpg' }}">
+    <img class="faceimage" ng-show="victory" revved-src="/images/victory.jpg" />
+    <img class="faceimage" ng-show="!victory" revved-src="/images/fail.jpg" />
+    
 </div>
 
 <div class="options-container padding">
