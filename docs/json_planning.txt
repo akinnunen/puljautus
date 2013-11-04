@@ -1,8 +1,0 @@
-{
-  'faces': {
-    'names': [
-      { 'first': 'Anssi', 'last': 'Kinnunen' },
-      { 'first': 'Matias', 'last': 'Kantele' }
-    ]
-  }
-}
