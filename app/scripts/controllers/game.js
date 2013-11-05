@@ -61,12 +61,16 @@ angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location,
 
     clearOptionFlags();
 
+    delete $scope.timeOneThirdsLeft;
+    delete $scope.timeTwoThirdsLeft;
+
     $scope.timer.reset();
     $scope.timer.start();
 
     setupRoundOptions();
   };
 
+  // Put up the next answer in line and make sure there are no duplicates
   var setupRoundOptions = function() {
 
     $scope.options = [];
@@ -81,14 +85,31 @@ angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location,
     $scope.options = utils.shuffleArray($scope.options.concat(incorrectAnswers));
   };
 
+  // Update the scope variables that are used in styling the timer
+  var updateTimerOptions = function() {
+
+    var third = appConfig.optionSelectTimeMillis / 3;
+    var left = $scope.timer.timeLeftInMillis;
+
+    if (left <= third * 2) {
+      $scope.timeTwoThirdsLeft = true;
+    }
+
+    if (left <= third) {
+      $scope.timeOneThirdsLeft = true;
+      delete $scope.timeTwoThirdsLeft;
+    }
+
+    $scope.$apply();
+  };
+
   var startGame = function() {
 
     $scope.state = state;
     $scope.timer = roundTimer;
 
-     // Since $scope.$watch 'timer' does not work
     setInterval(function() {
-      $scope.$apply();
+      updateTimerOptions();
     }, 1000);
 
     nextRound();

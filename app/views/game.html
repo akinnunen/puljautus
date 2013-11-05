@@ -17,6 +17,8 @@
          ng-repeat="option in options">{{option.label}}</a>
     </div>
     <div class="indicator">
-		<span class="timer-count"><span class="tiem">{{ timer.timeLeftInMillis / 1000 }}</span> Round {{ state.currentGameRound }}/{{ state.gameRounds }}</span>
+		<span class="timer-count"><span class="time slow-bg-color-transition" ng-class="{ 'time-two-thirds-left': timeTwoThirdsLeft, 'time-one-thirds-left': timeOneThirdsLeft }">
+            {{ timer.timeLeftInMillis / 1000 }}</span> Round {{ state.currentGameRound }}/{{ state.gameRounds }}
+        </span>
     </div>
 </div>
