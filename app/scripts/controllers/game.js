@@ -70,13 +70,13 @@ angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location,
 
     $scope.options = [];
 
-    var currentOption = state.options[state.currentGameRound - 1];
-    $scope.correctAnswer = currentOption;
-    $scope.options.push(currentOption);
+    $scope.correctAnswer = state.options[state.currentGameRound - 1];
+    $scope.options.push($scope.correctAnswer);
 
-    var allOptionsExceptCorrectAnswer = utils.cloneArrayWithoutSameItemValues(state.options, currentOption, 'label');
-    var incorrectAnswers = utils.shuffleArray(allOptionsExceptCorrectAnswer, appConfig.questionsPerRound - 1);
-
+    var allExceptCorrect = utils.cloneArrayWithoutSameItemValues(state.options, $scope.correctAnswer, 'label');
+    var noDuplicates = utils.removeDuplicatesByItemValue(allExceptCorrect, 'label');
+    var incorrectAnswers = utils.shuffleArray(noDuplicates, appConfig.questionsPerRound - 1);
+    
     $scope.options = utils.shuffleArray($scope.options.concat(incorrectAnswers));
   };
 

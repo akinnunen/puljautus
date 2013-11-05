@@ -25,8 +25,3 @@ A game where player tries to guess persons name, position, project etc. Live dem
 * git client >= 1.8.0
 * virtualbox >= 4.2.6
 * http://downloads.vagrantup.com/tags/v1.3.5
-
-## Issues
-
-* questions are totally random so same questions can be asked multiple times
-* 3 out of 4 answers are also picked randomly so there can be same answer multiple times

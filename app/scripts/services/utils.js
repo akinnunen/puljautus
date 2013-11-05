@@ -5,7 +5,7 @@ angular.module('vagrantApp').factory('utils', function () {
   var utils = {
 
     // From http://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array-in-javascript
-    shuffleArray: function(array, items) {
+    shuffleArray: function(array, numberOfItems) {
       
       var counter = array.length, temp, index;
       
@@ -16,8 +16,8 @@ angular.module('vagrantApp').factory('utils', function () {
         array[index] = temp;
       }
 
-      if (items) {
-        return array.splice(0, items);
+      if (numberOfItems) {
+        return array.splice(0, numberOfItems);
       } else {
         return array;
       }
@@ -38,6 +38,19 @@ angular.module('vagrantApp').factory('utils', function () {
         }
       }
       return results;
+    },
+
+    removeDuplicatesByItemValue: function(array, attributeName) {
+      var uniques = [];
+      for(var each in array) {
+        var value = array[each][attributeName];
+        if (uniques.indexOf(value) === -1) {
+          uniques.push(value);
+        } else {
+          array.splice(each, 1);
+        }
+      }
+      return array;
     },
 
     rnd: function(num) {
