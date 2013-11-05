@@ -56,6 +56,7 @@ angular.module('vagrantApp').controller('GameCtrl', function ($scope, $location,
 
     if (state.currentGameRound > state.gameRounds) {
       $location.path('/score');
+      return;
     }
 
     clearOptionFlags();
